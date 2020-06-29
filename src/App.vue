@@ -1,22 +1,25 @@
 <template>
   <div id='app'>
-    <div id='nav'>
-      <router-link to='/'>Home</router-link> |
-      <router-link to='/about'>About</router-link>
-    </div>
-    <router-view/>
-    <navigation-link url="/profile">
-      Su Perfil
-      <slot />
-    </navigation-link>
+    <MainLayout v-if="isLoading"/>
+    <LoadLayout v-else />
   </div>
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
+import LoadLayout from './layout/LoadLayout'
+import MainLayout from './layout/MainLayout'
 export default {
   name: 'App',
   components: {
+    LoadLayout,
+    MainLayout
+  },
+  computed: {
+    ...mapState(
+      'loading',
+      { isLoading: 'isLoading' }
+    )
   }
 }
 </script>
