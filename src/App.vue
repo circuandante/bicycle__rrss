@@ -1,19 +1,22 @@
 <template>
   <div id='app'>
-    <MainLayout v-if="isLoading"/>
-    <LoadLayout v-else />
+    <Navbar />
+    <LoginLayout v-if="isLoading" />
+    <MainLayout v-else />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import LoadLayout from './layout/LoadLayout'
+import LoginLayout from './layout/LoginLayout'
 import MainLayout from './layout/MainLayout'
+import Navbar from './components/Navbar'
 export default {
   name: 'App',
   components: {
-    LoadLayout,
-    MainLayout
+    LoginLayout,
+    MainLayout,
+    Navbar
   },
   computed: {
     ...mapState(

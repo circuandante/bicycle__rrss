@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    isLoading: false
+    isLoading: true
   },
   mutations: {
     SET_LOADING (state, payload) {
