@@ -1,0 +1,27 @@
+.signupComponent{
+  background-color: rgba(87, 87, 87, 0.404);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form{
+  &>.login, &>.signup{
+    display:flex;
+    flex-direction: column;
+  }
+  &.select-form{
+    display: flex;
+  }
+}
+
+.close{
+  position: fixed;
+  top: 0;
+  right: 32px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}

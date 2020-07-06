@@ -1,20 +1,20 @@
 <template>
   <div class="signupComponent">
     <div class="close"
-    @click.prevent="SET_REGISTRY_SIGNUP">
+    @click.prevent="SET_REGISTRY_LOGIN">
       <p>X</p>
     </div>
     <div class="formContent">
-      <h2>Registrarse</h2>
-      <!-- form login -->
+    <!-- form signup -->
       <div class="form">
-        <form class="login">
-          <input type="email" name="username" v-focus
-          @keyup.esc="SET_REGISTRY_SIGNUP"
-          id="Username_login" placeholder="editme"
+        <h2>Iniciar sesión</h2>
+        <form class="signup">
+          <input type="text" name="username" v-focus
+          @keyup.esc="SET_REGISTRY_LOGIN"
+          id="Username_signup" placeholder="Email"
           v-model="username">
           <input :type="typePassword" name="password"
-          id="password_login" placeholder="editme"
+          id="password_signup" placeholder="Password"
           v-model="password">
           <button @click.prevent="switchTo">ver pass</button>
         </form>
@@ -26,7 +26,6 @@
 <script>
 import { mapMutations } from 'vuex'
 export default {
-  name: 'signup',
   data () {
     return {
       username: '',
@@ -36,7 +35,7 @@ export default {
   },
   methods: {
     ...mapMutations('registry', [
-      'SET_REGISTRY_SIGNUP'
+      'SET_REGISTRY_LOGIN'
     ]),
     switchTo () {
       this.typePassword = this.typePassword === 'text' ? 'password' : 'text'
@@ -47,4 +46,5 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/css/_login.scss';
+
 </style>

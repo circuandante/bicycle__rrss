@@ -1,33 +1,46 @@
 <template>
   <div id='app'>
     <Navbar />
-    <LoginLayout v-if="isLoading" />
-    <MainLayout v-else />
+    <MainLayout />
+    <Signup class="signup" v-if="signup" />
+    <Login class="Login" v-if="login" />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import LoginLayout from './layout/LoginLayout'
 import MainLayout from './layout/MainLayout'
 import Navbar from './components/Navbar'
+import Signup from './components/Signup'
+import Login from './components/Login'
 export default {
   name: 'App',
   components: {
-    LoginLayout,
     MainLayout,
-    Navbar
+    Navbar,
+    Signup,
+    Login
   },
   computed: {
-    ...mapState(
-      'loading',
-      { isLoading: 'isLoading' }
-    )
+    ...mapState({
+      login: state => state.registry.login,
+      signup: state => state.registry.signup
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  #App{
+    // .signupComponent{
+    position: relative;
+  }
+  .signup, .Login{
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
   .mapa {
     height: 425px;
   }
