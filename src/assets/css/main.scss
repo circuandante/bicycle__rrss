@@ -2,13 +2,17 @@
 :root{
   --main-color: #e2f2ff;
   --background-color: #f6f6f6;
+  --color-main-action: tomato;
 }
 
 *{
   font-family:'MuseoModerno', cursive;
   margin: 0;
+  padding: 0;
 }
 
 body{
-  background-color:var(--background-color);
+  color: #3c3c3c;
+  font-size: 16px;
+  background: linear-gradient(45deg, #c7f2f2 0%, #ffffff 100%);
 }

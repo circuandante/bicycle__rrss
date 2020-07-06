@@ -1,3 +1,6 @@
+.formContent{
+  width: 500px;
+}
 .signupComponent{
   background-color: rgba(87, 87, 87, 0.404);
   width: 100vw;
@@ -6,14 +9,34 @@
   align-items: center;
   justify-content: center;
 }
+.form input{
+  margin: 8px;
+  padding: 8px;
+  border-color: transparent;
+  box-sizing: border-box;
+}
 
 .form{
+  background-color: white;
+  padding: 32px;
+  border-radius: 20px;
   &>.login, &>.signup{
     display:flex;
     flex-direction: column;
+
   }
   &.select-form{
     display: flex;
+  }
+  & .btnform{
+    cursor: pointer;
+    margin-top: 16px;
+    background-color: var(--color-main-action);
+    padding: 8px;
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    border-radius: 10px;
   }
 }
 

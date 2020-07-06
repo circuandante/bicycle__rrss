@@ -5,18 +5,20 @@
       <p>X</p>
     </div>
     <div class="formContent">
-      <h2>Registrarse</h2>
       <!-- form login -->
       <div class="form">
         <form class="login">
+          <h2>Registro</h2>
           <input type="email" name="username" v-focus
           @keyup.esc="SET_REGISTRY_SIGNUP"
-          id="Username_login" placeholder="editme"
+          id="Username_login" placeholder="Email"
           v-model="username">
           <input :type="typePassword" name="password"
-          id="password_login" placeholder="editme"
+          id="password_login" placeholder="Password"
           v-model="password">
-          <button @click.prevent="switchTo">ver pass</button>
+          <div class="btnform">
+            <p @click.prevent="switchTo">ver pass</p>
+          </div>
         </form>
       </div>
     </div>

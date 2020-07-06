@@ -1,16 +1,19 @@
 <template>
   <div>
-    <p>hello layout</p>
-    <router-view/>
+    <Navbar />
+    <Home />
+    <router-view />
   </div>
 </template>
 
 <script>
+import Navbar from '../components/Navbar'
+import Home from '../views/Home'
+
 export default {
-  name: 'MainLayout'
+  components: {
+    Navbar,
+    Home
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

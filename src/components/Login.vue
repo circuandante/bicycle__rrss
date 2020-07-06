@@ -16,7 +16,9 @@
           <input :type="typePassword" name="password"
           id="password_signup" placeholder="Password"
           v-model="password">
-          <button @click.prevent="switchTo">ver pass</button>
+          <div class="btnform">
+            <p @click.prevent="switchTo">ver pass</p>
+          </div>
         </form>
       </div>
     </div>
