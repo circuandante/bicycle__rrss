@@ -1,12 +1,12 @@
-const configMapa = {
+export const configMapa = {
   clickableIcons: false,
   streetViewControl: false,
   panControlOptions: false,
   gestureHandling: 'cooperative',
   mapTypeControl: false,
-  zoom: 7,
-  minZoom: 3,
-  maxZoom: 9
+  zoom: 15,
+  // zoom out 1 world
+  minZoom: 10,
+  // zoom in 18 street
+  maxZoom: 19
 }
-
-export { configMapa }

@@ -1,5 +1,5 @@
 <template>
-  <CargarMapa :configMapa='configMapa' apiKey='AIzaSyCT2b74W0URIQnKSwJNyLQn7svkGaOE6Xg'>
+<CargarMapa :configMapa='configMapa' :apiKey='apiKey'>
     <template slot-scope='{ google, map }'>
       <Marcadores
         v-for='marker in markers'
@@ -16,6 +16,7 @@
 import CargarMapa from './CargarMapa'
 import Marcadores from './Marcadores'
 import { configMapa } from './configMapa'
+import { apiKey } from '../../assets/keys/apikeymap.js'
 
 export default {
   components: {
@@ -25,19 +26,30 @@ export default {
 
   data () {
     return {
+      apiKey,
       markers: [
         {
           id: '0',
-          position: { lat: -13.1583635, lng: -72.603623 },
-          title: 'Machu Pichu - Cusco'
-        },
-        {
-          id: '1',
-          position: { lat: -12.025827, lng: -77.2679817 },
-          title: 'Lima - Perú'
+          position: { lat: 4.660596, lng: -74.093463 },
+          title: 'home'
         }
       ]
     }
+  },
+
+  created () {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.markers[0].position.lat = position.coords.latitude
+      this.markers[0].position.lng = position.coords.longitude
+      console.log(position.coords.latitude)
+    })
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        return position
+      }
+      )
+    }
+    // console.log(position)
   },
 
   computed: {

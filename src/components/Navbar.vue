@@ -1,14 +1,14 @@
 <template>
   <div class="Navbar-content">
-    <div class="log">
-      <p>logo</p>
+    <div class="logo">
+      <h1>Urbic</h1>
     </div>
     <div class="menu">
       <!-- <router-link to="/" class="link-menu"> about us </router-link> -->
-      <div class="login" @click="SET_REGISTRY_LOGIN">
+      <div class="btn secondary" @click="SET_REGISTRY_LOGIN">
         <p>Sign in</p>
       </div>
-      <div class="Signup" @click="SET_REGISTRY_SIGNUP">
+      <div class="btn main Signup" @click="SET_REGISTRY_SIGNUP">
         <p>Sign up</p>
       </div>
     </div>
@@ -48,19 +48,10 @@ export default {
     display: flex;
     justify-content: space-around;
   }
-  .login{
-    padding: 4px 8px;
-    border-radius: 4px;
-    border:1px solid tomato;
-    color: tomato;
-  }
-  .Signup{
-    background-color: tomato;
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: white;
-  }
-  .login, .Signup{
-    cursor: pointer;
+  .logo h1{
+    font-size: 2rem;
+    margin-top: 24px;
+    margin-left: 80px;
+    color: var(--color-main-action)
   }
 </style>
