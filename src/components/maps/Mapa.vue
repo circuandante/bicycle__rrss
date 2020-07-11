@@ -8,6 +8,7 @@
         :google='google'
         :map='map'
       />
+      <p>{{latitud}}gg</p>
     </template>
   </CargarMapa>
 </template>
@@ -19,38 +20,49 @@ import { configMapa } from './configMapa'
 import { apiKey } from '../../assets/keys/apikeymap.js'
 
 export default {
-  components: {
-    CargarMapa,
-    Marcadores
+  props: {
+    latitud: {
+      type: Number,
+      default: 0
+    },
+    longitude: {
+      type: Number,
+      default: 0
+    }
   },
-
   data () {
     return {
       apiKey,
       markers: [
         {
           id: '0',
-          position: { lat: 4.660596, lng: -74.093463 },
+          // position: { lat: 4.660596, lng: -74.093463 },
+          position: { lat: this.latitud, lng: this.longitude },
           title: 'home'
         }
       ]
     }
   },
 
-  created () {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.markers[0].position.lat = position.coords.latitude
-      this.markers[0].position.lng = position.coords.longitude
-      console.log(position.coords.latitude)
-    })
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        return position
-      }
-      )
-    }
-    // console.log(position)
+  components: {
+    CargarMapa,
+    Marcadores
   },
+
+  // created () {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     this.markers[0].position.lat = position.coords.latitude
+  //     this.markers[0].position.lng = position.coords.longitude
+  //     console.log(position.coords.latitude)
+  //   })
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       return position
+  //     }
+  //     )
+  //   }
+  //   // console.log(position)
+  // },
 
   computed: {
     configMapa () {

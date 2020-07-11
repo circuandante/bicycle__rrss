@@ -12,10 +12,10 @@
           <input type="text" name="username" v-focus
           @keyup.esc="SET_REGISTRY_LOGIN"
           id="Username_signup" placeholder="Email"
-          v-model="username">
+          v-model="user_data.email">
           <input :type="typePassword" name="password"
           id="password_signup" placeholder="Password"
-          v-model="password">
+          v-model="user_data.password">
           <div class="btnform">
             <p @click.prevent="switchTo">ver pass</p>
           </div>
@@ -30,8 +30,10 @@ import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      username: '',
-      password: '',
+      user_data: {
+        email: 'jess@mon.com',
+        password: 'jess1234'
+      },
       typePassword: 'text'
     }
   },
@@ -40,6 +42,7 @@ export default {
       'SET_REGISTRY_LOGIN'
     ]),
     switchTo () {
+      this.$store.dispatch('registry/login', this.user_data)
       this.typePassword = this.typePassword === 'text' ? 'password' : 'text'
     }
   }

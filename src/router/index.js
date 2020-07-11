@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../layout/MainLayout.vue'
 import User from '../views/User.vue'
+import EditProfile from '../views/EditProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +13,16 @@ const routes = [
     component: Home
   },
   {
-    path: '/user',
+    path: '/user/:username',
     name: 'User',
-    component: User
+    component: User,
+    props: true
+  },
+  {
+    path: '/userEdit/:username',
+    name: 'UserEdit',
+    component: EditProfile,
+    props: true
   },
   {
     path: '/about',

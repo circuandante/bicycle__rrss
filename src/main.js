@@ -24,5 +24,8 @@ Vue.filter('capitalize', function (value) {
 new Vue({
   router,
   store,
+  created () {
+    this.$store.commit('maps/SET_LOCATION')
+  },
   render: h => h(App)
 }).$mount('#app')

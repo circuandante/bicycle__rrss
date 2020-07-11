@@ -12,10 +12,19 @@
           <input type="email" name="username" v-focus
           @keyup.esc="SET_REGISTRY_SIGNUP"
           id="Username_login" placeholder="Email"
-          v-model="username">
+          v-model="user_data.email">
+          <input type="text" name="password"
+          id="password_login" placeholder="Nickname"
+          v-model="user_data.nickname">
+          <input type="text" name="Username"
+          id="password_login" placeholder="Username"
+          v-model="user_data.username">
           <input :type="typePassword" name="password"
           id="password_login" placeholder="Password"
-          v-model="password">
+          v-model="user_data.password">
+          <input :type="typePassword" name="password"
+          id="password_login" placeholder="Password confirmation"
+          v-model="user_data.password_confirmation">
           <div class="btnform">
             <p @click.prevent="switchTo">ver pass</p>
           </div>
@@ -31,8 +40,13 @@ export default {
   name: 'signup',
   data () {
     return {
-      username: '',
-      password: '',
+      user_data: {
+        email: 'jess@mon.com',
+        nickname: 'aksjdkaj',
+        username: 'asdjfaj',
+        password: 'jess1234',
+        password_confirmation: 'jess1234'
+      },
       typePassword: 'text'
     }
   },
@@ -41,6 +55,7 @@ export default {
       'SET_REGISTRY_SIGNUP'
     ]),
     switchTo () {
+      this.$store.dispatch('registry/signup', this.user_data)
       this.typePassword = this.typePassword === 'text' ? 'password' : 'text'
     }
   }

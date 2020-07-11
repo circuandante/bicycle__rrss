@@ -7,8 +7,8 @@
           class="imagePerfil">
         </figure>
         <div class="name">
-          <p>{{username | capitalize}}<br/>
-          {{last_name | capitalize}}</p>
+          <p>{{user_data.first_name | capitalize}}<br/>
+          {{user_data.last_name | capitalize}}</p>
         </div>
       </div>
     </div>
@@ -44,12 +44,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
       username: 'andres',
       last_name: 'rivera'
     }
+  },
+  created () {
+
+  },
+  computed: {
+    ...mapState('registry', [
+      'user_data'
+    ])
   }
 }
 </script>
